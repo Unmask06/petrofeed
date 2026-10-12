@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, sans-serif;
+
+  --color-brand-50: #eef6ff;
+  --color-brand-100: #d9eaff;
+  --color-brand-200: #b6d6fb;
+  --color-brand-300: #84b9f3;
+  --color-brand-400: #4c94e6;
+  --color-brand-500: #2277d4;
+  --color-brand-600: #0b5cab;
+  --color-brand-700: #0a4a8a;
+  --color-brand-800: #0d3d6f;
+  --color-brand-900: #0f2f52;
+  --color-ink: #0b1b2e;
+
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #14b8a6;
+  --color-accent-600: #0d9488;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  @apply bg-white text-slate-600 font-sans antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display text-ink tracking-tight;
+}
+
+::selection {
+  background: var(--color-accent-300);
+  color: var(--color-ink);
+}
+
+/* Fluid type & spacing helpers */
+.container-fluid {
+  width: min(100% - clamp(2rem, 6vw, 6rem), 80rem);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+.eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+}
+.eyebrow::before {
+  content: "";
+  @apply h-px w-8 bg-gradient-to-r from-brand-600 to-accent-400;
+}
+
+.h-display {
+  font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+.h-section {
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+.lead {
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-brand-600 via-brand-500 to-accent-500 bg-clip-text text-transparent;
+}
+
+/* Blueprint grid background */
+.bg-blueprint {
+  background-image:
+    linear-gradient(to right, rgb(11 92 171 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 92 171 / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

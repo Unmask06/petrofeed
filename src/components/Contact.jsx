@@ -1,0 +1,372 @@
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import {
+  Mail,
+  Phone,
+  Send,
+  Building,
+  UserCheck,
+  CheckCircle,
+  Copy,
+  MessageCircle,
+  MapPin,
+} from 'lucide-react'
+import { COMPANY, MARKETS, CORE_SERVICES } from '../data/content'
+
+export function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: 'Consultancy',
+    market: 'Oil & Gas',
+    message: '',
+  })
+  const [copied, setCopied] = useState(false)
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const subject = encodeURIComponent(
+      `Inquiry: ${formData.service} (${formData.market}) - from ${formData.name || 'Website Visitor'}`
+    )
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone || 'N/A'}\n` +
+        `Service Required: ${formData.service}\n` +
+        `Industry / Market: ${formData.market}\n\n` +
+        `Project / Inquiry Details:\n${formData.message}\n`
+    )
+    window.location.href = `mailto:${COMPANY.contact.email}?subject=${subject}&body=${body}`
+  }
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(COMPANY.contact.email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <section id="contact" className="section relative bg-white">
+      <div className="container-fluid">
+        <div className="max-w-2xl">
+          <span className="eyebrow">Connect With Us</span>
+          <h2 className="h-section mt-4 font-bold">
+            Let&apos;s discuss your next{' '}
+            <span className="text-gradient">engineering challenge.</span>
+          </h2>
+          <p className="lead mt-4 text-slate-600">
+            Reach out directly to our engineering leadership or submit your project scope below.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Direct contact cards */}
+          <div className="lg:col-span-5 space-y-6">
+            {/* Leadership card */}
+            <div className="rounded-3xl border border-slate-200/80 bg-slate-50/70 p-7 shadow-sm">
+              <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-brand-600">
+                <UserCheck className="h-4 w-4" />
+                <span>Engineering Leadership</span>
+              </div>
+              <h3 className="mt-3 font-display text-xl font-bold text-ink">
+                {COMPANY.contact.lead.name}
+              </h3>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                {COMPANY.contact.lead.title}
+              </p>
+              <p className="mt-3 text-xs text-slate-600">
+                {COMPANY.legalNameFull}
+              </p>
+            </div>
+
+            {/* Email card */}
+            <div className="flex items-start justify-between rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                  <Mail className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    Direct Email
+                  </p>
+                  <a
+                    href={`mailto:${COMPANY.contact.email}`}
+                    className="mt-1 block text-base font-bold text-ink hover:text-brand-600"
+                  >
+                    {COMPANY.contact.email}
+                  </a>
+                  <p className="text-xs text-slate-500">Inquiries answered within 24 hours</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={copyEmail}
+                aria-label="Copy email"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-brand-600"
+                title="Copy to clipboard"
+              >
+                {copied ? (
+                  <CheckCircle className="h-4 w-4 text-emerald-600" />
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
+              </button>
+            </div>
+
+            {/* Direct Phone card */}
+            <div className="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                <Phone className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Direct Phone / Mobile
+                </p>
+                <a
+                  href={`tel:${COMPANY.contact.phoneTel}`}
+                  className="mt-1 block text-base font-bold text-ink hover:text-brand-600"
+                >
+                  {COMPANY.contact.phoneDisplay}
+                </a>
+                <p className="text-xs text-slate-500">Qatar &amp; International</p>
+              </div>
+            </div>
+
+            {/* WhatsApp Direct Chat card */}
+            <div className="flex items-start gap-4 rounded-2xl border border-emerald-200/80 bg-emerald-50/40 p-6 shadow-sm">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+                <MessageCircle className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                  Instant WhatsApp
+                </p>
+                <a
+                  href={COMPANY.contact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-flex items-center gap-1.5 text-base font-bold text-ink hover:text-emerald-700"
+                >
+                  <span>Chat on WhatsApp</span>
+                  <span className="text-xs font-normal text-slate-500">({COMPANY.contact.phoneDisplay})</span>
+                </a>
+                <p className="text-xs text-slate-500">Direct instant messaging with engineering</p>
+              </div>
+            </div>
+
+            {/* India Regional Office Card */}
+            <div className="rounded-2xl border border-brand-200/90 bg-gradient-to-br from-brand-50/70 via-white to-white p-6 shadow-sm">
+              <div className="flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white shadow-sm shadow-brand-600/30">
+                  <MapPin className="h-5 w-5" />
+                </span>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-brand-700">
+                      India Office &amp; Operations
+                    </p>
+                    <span className="rounded-full bg-brand-100 px-2.5 py-0.5 text-[10px] font-bold text-brand-700">
+                      Chennai
+                    </span>
+                  </div>
+                  <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
+                    {COMPANY.contact.indiaOffice.address}
+                  </p>
+                  <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-brand-100/70 pt-3 text-xs font-bold text-brand-700">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                      Call / WhatsApp:
+                    </span>
+                    {COMPANY.contact.indiaOffice.phones.map((p) => (
+                      <a
+                        key={p.tel}
+                        href={`tel:${p.tel}`}
+                        className="inline-flex items-center gap-1 hover:text-brand-900 hover:underline"
+                      >
+                        <Phone className="h-3 w-3" />
+                        <span>{p.display}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Presence Summary */}
+            <div className="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                <Building className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Global Footprint
+                </p>
+                <p className="mt-1 text-sm font-semibold text-ink">
+                  India · Oman · Qatar · UAE · Singapore
+                </p>
+                <p className="text-xs text-slate-500">
+                  Official Website: {COMPANY.domain}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="lg:col-span-7">
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5 }}
+              onSubmit={handleSubmit}
+              className="rounded-3xl border border-slate-200/80 bg-slate-50/60 p-8 shadow-sm md:p-10"
+            >
+              <h3 className="font-display text-xl font-bold text-ink">
+                Submit an Inquiry
+              </h3>
+              <p className="mt-1 text-xs text-slate-500">
+                This will prepare an email directly addressed to our engineering desk.
+              </p>
+
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. John Doe"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    Work Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@company.com"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    Phone / WhatsApp
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+974 ..."
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="market"
+                    className="block text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    Industry / Market
+                  </label>
+                  <select
+                    id="market"
+                    name="market"
+                    value={formData.market}
+                    onChange={handleChange}
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                  >
+                    {MARKETS.map((m) => (
+                      <option key={m.id} value={m.name}>
+                        {m.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="service"
+                    className="block text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    Required Service Discipline
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                  >
+                    {CORE_SERVICES.map((s) => (
+                      <option key={s.id} value={s.title}>
+                        {s.title}
+                      </option>
+                    ))}
+                    <option value="Special Services (HAZOP / SIL / Optimization)">
+                      Special Services (HAZOP, SIL, Optimization, Modeling)
+                    </option>
+                  </select>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    Project Details / Scope *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Briefly describe your assignment, facility location, and desired timeline..."
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:bg-brand-700"
+              >
+                <span>Compose Email to PetroFeed</span>
+                <Send className="h-4 w-4" />
+              </button>
+            </motion.form>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
