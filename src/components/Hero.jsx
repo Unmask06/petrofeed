@@ -113,7 +113,7 @@ export function Hero() {
                 </div>
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
                   <img
-                    src="/logo-mark.jpeg"
+                    src={`${import.meta.env.BASE_URL}logo-mark.jpeg`}
                     alt=""
                     className="h-6 w-6 object-contain"
                   />

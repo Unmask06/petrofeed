@@ -9,7 +9,7 @@ export function Logo({ variant = 'dark', showSub = true, className = '' }) {
     <a href="#" className={`group inline-flex items-center gap-3 ${className}`}>
       <span className="relative flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 p-1.5 shadow-md shadow-brand-900/10 transition-transform duration-300 group-hover:scale-105">
         <img
-          src="/logo-mark.jpeg"
+          src={`${import.meta.env.BASE_URL}logo-mark.jpeg`}
           alt="PetroFeed Mark"
           className="h-full w-full object-contain invert brightness-200"
         />

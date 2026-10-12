@@ -110,7 +110,7 @@ export function Presence() {
             {/* Associate Company Logo */}
             <div className="flex items-center justify-center rounded-2xl border border-slate-100 bg-slate-50/70 p-6 lg:col-span-4">
               <img
-                src="/strutech-logo.png"
+                src={`${import.meta.env.BASE_URL}strutech-logo.png`}
                 alt="StrucTech Consultancy Logo"
                 className="max-h-16 w-auto object-contain"
               />
