@@ -36,7 +36,7 @@ export function About() {
             <span className="eyebrow">About PetroFeed</span>
             <h2 className="h-section mt-4 font-bold">
               Integrated engineering consulting with{' '}
-              <span className="text-gradient">proven insight.</span>
+              <span className="text-brand-600">proven insight.</span>
             </h2>
             <p className="lead mt-6 text-slate-600">
               {COMPANY.summary}

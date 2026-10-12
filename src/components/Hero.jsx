@@ -43,7 +43,7 @@ export function Hero() {
               className="h-display mt-5 font-bold"
             >
               Engineering{' '}
-              <span className="text-gradient">optimized solutions</span> across
+              <span className="text-brand-600">optimized solutions</span> across
               energy &amp; process assets.
             </motion.h1>
 

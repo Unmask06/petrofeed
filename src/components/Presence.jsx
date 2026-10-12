@@ -11,7 +11,7 @@ export function Presence() {
           <span className="eyebrow">Regional Network</span>
           <h2 className="h-section mt-4 font-bold">
             Delivering across{' '}
-            <span className="text-gradient">India, the Gulf &amp; Southeast Asia.</span>
+            <span className="text-brand-600">India, the Gulf &amp; Southeast Asia.</span>
           </h2>
           <p className="lead mt-4 text-slate-600">
             Our multi-office footprint enables seamless execution, local responsiveness, and cross-border engineering collaboration.

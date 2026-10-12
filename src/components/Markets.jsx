@@ -29,7 +29,7 @@ export function Markets() {
           <span className="eyebrow">Sectors We Serve</span>
           <h2 className="h-section mt-4 font-bold">
             Targeted solutions across{' '}
-            <span className="text-gradient">high-criticality markets.</span>
+            <span className="text-brand-600">high-criticality markets.</span>
           </h2>
           <p className="lead mt-4 text-slate-600">
             Our deep technical insights span critical process, energy, and infrastructure industries worldwide.

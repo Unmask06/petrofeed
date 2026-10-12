@@ -31,7 +31,7 @@ export function Services() {
             <span className="eyebrow">Comprehensive Capabilities</span>
             <h2 className="h-section mt-4 font-bold">
               Integrated services built for{' '}
-              <span className="text-gradient">every project phase.</span>
+              <span className="text-brand-600">every project phase.</span>
             </h2>
             <p className="lead mt-4 text-slate-600">
               From initial advisory and FEED to detailed engineering, safety facilitation, and specialized optimization.

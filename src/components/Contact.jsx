@@ -57,7 +57,7 @@ export function Contact() {
           <span className="eyebrow">Connect With Us</span>
           <h2 className="h-section mt-4 font-bold">
             Let&apos;s discuss your next{' '}
-            <span className="text-gradient">engineering challenge.</span>
+            <span className="text-brand-600">engineering challenge.</span>
           </h2>
           <p className="lead mt-4 text-slate-600">
             Reach out directly to our engineering leadership or submit your project scope below.

@@ -11,7 +11,7 @@ export function Values() {
           <span className="eyebrow">Our Guiding Principle</span>
           <h2 className="h-section mt-4 font-bold">
             Driven by safety, accountability, and{' '}
-            <span className="text-gradient">authentic values.</span>
+            <span className="text-brand-600">authentic values.</span>
           </h2>
         </div>
 
