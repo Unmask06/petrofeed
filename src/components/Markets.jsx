@@ -72,11 +72,6 @@ export function Markets() {
                   </p>
                 </div>
 
-                <div className="mt-6 border-t border-slate-100 pt-3">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-600">
-                    PetroFeed Domain
-                  </span>
-                </div>
               </motion.div>
             )
           })}

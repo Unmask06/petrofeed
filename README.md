@@ -28,7 +28,7 @@ A modern, fluid, single-page corporate website for **PetroFeed Engineering & Con
 6. **Regional Presence & Associate**:
    - Footprint across **India, Oman, Qatar, UAE, and Singapore**.
    - Associate company **StrucTech** (`strutechconsultancy.com`) with brand logo.
-7. **Contact**: Pre-configured inquiry mailto composer, direct dial (+974 3322 4253), email copy tool, and leadership details for Lead Mechanical Nageswar Kotari.
+7. **Contact**: Pre-configured inquiry mailto composer, direct phone and WhatsApp contact, and email copy tool.
 8. **Footer**: Quick navigation, legal registrations, and back-to-top shortcut.
 
 ## Development
@@ -42,3 +42,13 @@ npm run build
 # Preview production build locally
 npm run preview
 ```
+
+## Search visibility and production hosting
+
+`npm run build` prerenders the React page into `dist/index.html`, then the browser hydrates it for interactive menus and forms. Both service tabs are included in the HTML; without JavaScript, both panels are displayed. The build also generates `robots.txt` and a one-page `sitemap.xml`. Metadata and company structured data use `src/data/content.js` and `src/data/seo.js`.
+
+The canonical production URL is **https://www.petrofeed.net/**. Production assets default to `/`; local development remains at `/petrofeed/`. Configure the hosting custom domain and DNS for `www.petrofeed.net` before deploying this build. If previewing on a GitHub Pages repository subpath, set `VITE_BASE_PATH=/petrofeed/` when building. The canonical URL remains the company domain.
+
+The GitHub Pages workflow keeps `/petrofeed/` as its deployment path until the repository Actions variable `VITE_BASE_PATH` is set to `/` for the custom domain. This preserves the current repository deployment while the domain is being configured.
+
+After deployment, verify the domain in Google Search Console, submit `https://www.petrofeed.net/sitemap.xml`, and inspect the homepage URL. Local development is not publicly indexable.

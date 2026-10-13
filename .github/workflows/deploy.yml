@@ -29,6 +29,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/petrofeed/' }}
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3

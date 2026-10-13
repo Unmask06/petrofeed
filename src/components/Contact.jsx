@@ -5,7 +5,6 @@ import {
   Phone,
   Send,
   Building,
-  UserCheck,
   CheckCircle,
   Copy,
   MessageCircle,
@@ -60,30 +59,13 @@ export function Contact() {
             <span className="text-brand-600">engineering challenge.</span>
           </h2>
           <p className="lead mt-4 text-slate-600">
-            Reach out directly to our engineering leadership or submit your project scope below.
+            Reach out to our team or submit your project scope below.
           </p>
         </div>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Direct contact cards */}
           <div className="lg:col-span-5 space-y-6">
-            {/* Leadership card */}
-            <div className="rounded-3xl border border-slate-200/80 bg-slate-50/70 p-7 shadow-sm">
-              <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-brand-600">
-                <UserCheck className="h-4 w-4" />
-                <span>Engineering Leadership</span>
-              </div>
-              <h3 className="mt-3 font-display text-xl font-bold text-ink">
-                {COMPANY.contact.lead.name}
-              </h3>
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                {COMPANY.contact.lead.title}
-              </p>
-              <p className="mt-3 text-xs text-slate-600">
-                {COMPANY.legalNameFull}
-              </p>
-            </div>
-
             {/* Email card */}
             <div className="flex items-start justify-between rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
               <div className="flex items-start gap-4">
@@ -133,7 +115,7 @@ export function Contact() {
                 >
                   {COMPANY.contact.phoneDisplay}
                 </a>
-                <p className="text-xs text-slate-500">Qatar &amp; International</p>
+                <p className="text-xs text-slate-500">Call or WhatsApp</p>
               </div>
             </div>
 
@@ -177,21 +159,6 @@ export function Contact() {
                   <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
                     {COMPANY.contact.indiaOffice.address}
                   </p>
-                  <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 border-t border-brand-100/70 pt-3 text-xs font-bold text-brand-700">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-                      Call / WhatsApp:
-                    </span>
-                    {COMPANY.contact.indiaOffice.phones.map((p) => (
-                      <a
-                        key={p.tel}
-                        href={`tel:${p.tel}`}
-                        className="inline-flex items-center gap-1 hover:text-brand-900 hover:underline"
-                      >
-                        <Phone className="h-3 w-3" />
-                        <span>{p.display}</span>
-                      </a>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -284,7 +251,7 @@ export function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+974 ..."
+                    placeholder="+91 ..."
                     className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base sm:text-sm text-ink placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                   />
                 </div>

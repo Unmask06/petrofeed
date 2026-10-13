@@ -14,25 +14,17 @@ export const COMPANY = {
     'We deliver solutions with high business value, safe-economic and easy deployment.',
   differentiator:
     'Our team brings deep technical knowledge and insights across every engagement, creating clear differentiation in the market.',
-  domain: 'petrofeed.in',
-  website: 'https://www.petrofeed.in',
+  domain: 'petrofeed.net',
+  website: 'https://www.petrofeed.net',
   contact: {
-    lead: {
-      name: 'Nageswar Kotari',
-      title: 'Lead Mechanical',
-    },
-    email: 'nageshwar@petrofeed.in',
-    phoneDisplay: '+974 3322 4253',
-    phoneTel: '+97433224253',
-    whatsappUrl: 'https://wa.me/97433224253',
+    email: 'info@petrofeed.net',
+    phoneDisplay: '+91 95663 30696',
+    phoneTel: '+919566330696',
+    whatsappUrl: 'https://wa.me/919566330696',
     indiaOffice: {
       title: 'India Office & Operations',
       address:
         'Flat No A117, A-Block, 11th Floor, Old No 13, New No 4, CTH Road, Padi, Chennai - 600049',
-      phones: [
-        { display: '+91 99633 60130', tel: '+919963360130' },
-        { display: '+91 82203 20550', tel: '+918220320550' },
-      ],
     },
   },
   vision: {
@@ -55,8 +47,7 @@ export const COMPANY = {
       address:
         'Flat No A117, A-Block, 11th Floor, Old No 13, New No 4, CTH Road, Padi, Chennai - 600049',
       phones: [
-        { display: '+91 99633 60130', tel: '+919963360130' },
-        { display: '+91 82203 20550', tel: '+918220320550' },
+        { display: '+91 95663 30696', tel: '+919566330696' },
       ],
     },
     { country: 'Oman', code: 'OM', hub: 'Middle East Advisory' },

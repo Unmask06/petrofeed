@@ -12,7 +12,7 @@ import { FloatingQuickContact } from './components/FloatingQuickContact'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-700 antialiased selection:bg-teal-200 selection:text-slate-900">
+    <div data-prerendered="true" className="min-h-screen bg-white text-slate-700 antialiased selection:bg-teal-200 selection:text-slate-900">
       <Navbar />
       <main>
         <Hero />

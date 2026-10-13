@@ -49,9 +49,6 @@ export function Footer() {
             </h4>
             <div className="mt-4 space-y-2 text-sm text-slate-300">
               <p>
-                <span className="text-slate-400">Lead:</span> {COMPANY.contact.lead.name} ({COMPANY.contact.lead.title})
-              </p>
-              <p>
                 <span className="text-slate-400">Email:</span>{' '}
                 <a
                   href={`mailto:${COMPANY.contact.email}`}
@@ -76,17 +73,6 @@ export function Footer() {
               <div className="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
                 <p className="font-semibold text-slate-300">India Office &amp; Operations:</p>
                 <p className="leading-relaxed">{COMPANY.contact.indiaOffice.address}</p>
-                <p className="text-slate-300">
-                  Tel:{' '}
-                  {COMPANY.contact.indiaOffice.phones.map((p, idx) => (
-                    <span key={p.tel}>
-                      <a href={`tel:${p.tel}`} className="text-accent-400 hover:underline">
-                        {p.display}
-                      </a>
-                      {idx < COMPANY.contact.indiaOffice.phones.length - 1 ? ' / ' : ''}
-                    </span>
-                  ))}
-                </p>
               </div>
               <p className="pt-2 text-xs text-slate-400">
                 Associate:{' '}
