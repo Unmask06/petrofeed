@@ -42,7 +42,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact summary & associate */}
+          {/* Contact summary */}
           <div className="lg:col-span-4">
             <h4 className="font-display text-xs font-bold uppercase tracking-wider text-white">
               Headquarters &amp; Direct Desk
@@ -74,17 +74,6 @@ export function Footer() {
                 <p className="font-semibold text-slate-300">India Office &amp; Operations:</p>
                 <p className="leading-relaxed">{COMPANY.contact.indiaOffice.address}</p>
               </div>
-              <p className="pt-2 text-xs text-slate-400">
-                Associate:{' '}
-                <a
-                  href={COMPANY.associate.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-200 underline hover:text-white"
-                >
-                  {COMPANY.associate.name}
-                </a>
-              </p>
             </div>
           </div>
         </div>

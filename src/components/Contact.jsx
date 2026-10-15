@@ -4,11 +4,9 @@ import {
   Mail,
   Phone,
   Send,
-  Building,
   CheckCircle,
   Copy,
   MessageCircle,
-  MapPin,
 } from 'lucide-react'
 import { COMPANY, MARKETS, CORE_SERVICES } from '../data/content'
 
@@ -100,84 +98,33 @@ export function Contact() {
               </button>
             </div>
 
-            {/* Direct Phone card */}
-            <div className="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
-                <Phone className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Direct Phone / Mobile
-                </p>
+            {/* Combined phone and WhatsApp card */}
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Call or WhatsApp
+              </p>
+              <p className="mt-1 text-base font-bold text-ink">
+                {COMPANY.contact.phoneDisplay}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
                 <a
                   href={`tel:${COMPANY.contact.phoneTel}`}
-                  className="mt-1 block text-base font-bold text-ink hover:text-brand-600"
+                  aria-label={`Call PetroFeed at ${COMPANY.contact.phoneDisplay}`}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 transition hover:bg-brand-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
                 >
-                  {COMPANY.contact.phoneDisplay}
+                  <Phone aria-hidden="true" className="h-5 w-5" />
+                  <span>Call</span>
                 </a>
-                <p className="text-xs text-slate-500">Call or WhatsApp</p>
-              </div>
-            </div>
-
-            {/* WhatsApp Direct Chat card */}
-            <div className="flex items-start gap-4 rounded-2xl border border-emerald-200/80 bg-emerald-50/40 p-6 shadow-sm">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
-                <MessageCircle className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">
-                  Instant WhatsApp
-                </p>
                 <a
                   href={COMPANY.contact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 inline-flex items-center gap-1.5 text-base font-bold text-ink hover:text-emerald-700"
+                  aria-label="Chat with PetroFeed on WhatsApp (opens in a new tab)"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
                 >
-                  <span>Chat on WhatsApp</span>
-                  <span className="text-xs font-normal text-slate-500">({COMPANY.contact.phoneDisplay})</span>
+                  <MessageCircle aria-hidden="true" className="h-5 w-5" />
+                  <span>WhatsApp</span>
                 </a>
-                <p className="text-xs text-slate-500">Direct instant messaging with engineering</p>
-              </div>
-            </div>
-
-            {/* India Regional Office Card */}
-            <div className="rounded-2xl border border-brand-200/90 bg-gradient-to-br from-brand-50/70 via-white to-white p-6 shadow-sm">
-              <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white shadow-sm shadow-brand-600/30">
-                  <MapPin className="h-5 w-5" />
-                </span>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-brand-700">
-                      India Office &amp; Operations
-                    </p>
-                    <span className="rounded-full bg-brand-100 px-2.5 py-0.5 text-[10px] font-bold text-brand-700">
-                      Chennai
-                    </span>
-                  </div>
-                  <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
-                    {COMPANY.contact.indiaOffice.address}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Presence Summary */}
-            <div className="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
-                <Building className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Global Footprint
-                </p>
-                <p className="mt-1 text-sm font-semibold text-ink">
-                  India · Oman · Qatar · UAE · Singapore
-                </p>
-                <p className="text-xs text-slate-500">
-                  Official Website: {COMPANY.domain}
-                </p>
               </div>
             </div>
           </div>

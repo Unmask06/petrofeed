@@ -55,14 +55,6 @@ export const COMPANY = {
     { country: 'UAE', code: 'AE', hub: 'Gulf Projects' },
     { country: 'Singapore', code: 'SG', hub: 'Asia-Pacific Hub' },
   ],
-  associate: {
-    name: 'StrucTech',
-    role: 'Associate Company',
-    website: 'https://www.strutechconsultancy.com',
-    displayUrl: 'strutechconsultancy.com',
-    description:
-      'Collaborative engineering partner delivering specialized structural and multi-disciplinary solutions across shared markets.',
-  },
 }
 
 export const MARKETS = [

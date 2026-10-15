@@ -25,9 +25,9 @@ A modern, fluid, single-page corporate website for **PetroFeed Engineering & Con
    - **Core Disciplines (5)**: Consultancy, Design & Engineering, Project Management, Procurement, Construction Management.
    - **Specialized Capabilities (8)**: Energy Optimization, Process Optimization, Onsite Troubleshooting, Safety Studies, Safety Trainings, Facilitations (HAZOP/SIL/Design Reviews), Cost Control, Process Modeling & Data Analytics.
 5. **Vision & Values**: Zero environmental incidents, Zero harm to people & assets, and human-centered values narrative.
-6. **Regional Presence & Associate**:
+6. **Regional Presence**:
    - Footprint across **India, Oman, Qatar, UAE, and Singapore**.
-   - Associate company **StrucTech** (`strutechconsultancy.com`) with brand logo.
+   - Interactive SVG map with country highlights and a details panel. Map outlines use locally bundled, simplified [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/) public domain boundaries.
 7. **Contact**: Pre-configured inquiry mailto composer, direct phone and WhatsApp contact, and email copy tool.
 8. **Footer**: Quick navigation, legal registrations, and back-to-top shortcut.
 
