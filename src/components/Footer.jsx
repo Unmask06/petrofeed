@@ -70,10 +70,6 @@ export function Footer() {
                 <span className="text-slate-400">Footprint:</span>{' '}
                 India · Oman · Qatar · UAE · Singapore
               </p>
-              <div className="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                <p className="font-semibold text-slate-300">India Office &amp; Operations:</p>
-                <p className="leading-relaxed">{COMPANY.contact.indiaOffice.address}</p>
-              </div>
             </div>
           </div>
         </div>

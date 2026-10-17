@@ -21,11 +21,6 @@ export const COMPANY = {
     phoneDisplay: '+91 95663 30696',
     phoneTel: '+919566330696',
     whatsappUrl: 'https://wa.me/919566330696',
-    indiaOffice: {
-      title: 'India Office & Operations',
-      address:
-        'Flat No A117, A-Block, 11th Floor, Old No 13, New No 4, CTH Road, Padi, Chennai - 600049',
-    },
   },
   vision: {
     title: 'Our Vision',
@@ -44,8 +39,6 @@ export const COMPANY = {
       country: 'India',
       code: 'IN',
       hub: 'Engineering & Operations',
-      address:
-        'Flat No A117, A-Block, 11th Floor, Old No 13, New No 4, CTH Road, Padi, Chennai - 600049',
       phones: [
         { display: '+91 95663 30696', tel: '+919566330696' },
       ],
