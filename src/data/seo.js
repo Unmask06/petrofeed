@@ -23,13 +23,6 @@ export function renderSeoHead() {
         description: COMPANY.summary,
         email: COMPANY.contact.email,
         telephone: COMPANY.contact.phoneTel,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Flat No A117, A-Block, 11th Floor, Old No 13, New No 4, CTH Road, Padi',
-          addressLocality: 'Chennai',
-          postalCode: '600049',
-          addressCountry: 'IN',
-        },
         areaServed: COMPANY.regions.map(({ country }) => ({ '@type': 'Country', name: country })),
         hasOfferCatalog: {
           '@type': 'OfferCatalog',

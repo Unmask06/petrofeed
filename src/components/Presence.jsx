@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MapPin, Phone, Globe2 } from 'lucide-react'
+import { Phone, Globe2 } from 'lucide-react'
 import { COMPANY } from '../data/content'
 import mapData from '../data/regional-map.json'
 
@@ -49,9 +49,9 @@ export function Presence() {
               aria-labelledby="presence-map-title presence-map-description"
               className="block h-auto max-h-[420px] w-full"
             >
-              <title id="presence-map-title">PetroFeed regional presence: {selectedCountry.country} selected; Tamil Nadu highlighted</title>
+              <title id="presence-map-title">PetroFeed regional presence: {selectedCountry.country} selected</title>
               <desc id="presence-map-description">
-                India, Oman, Qatar, the United Arab Emirates, and Singapore are highlighted in blue. Tamil Nadu is highlighted in teal within India, with Chennai marked as the office city. Use the country buttons below to explore each region.
+                India, Oman, Qatar, the United Arab Emirates, and Singapore are highlighted in blue. Use the country buttons below to explore each region.
               </desc>
               <g fill="#dce5ee" stroke="#ffffff" strokeWidth="1.2" strokeLinejoin="round" fillRule="evenodd">
                 {mapData.countries.filter(country => !coverageCodes.has(country.code)).map(country => (
@@ -63,7 +63,6 @@ export function Presence() {
                   <path key={country.code} d={country.path} fill={country.code === selectedMapCode ? '#0b5cab' : '#84b9f3'} />
                 ))}
               </g>
-              <path d={mapData.tamilNadu.path} fill="#0d9488" stroke="#ffffff" strokeWidth="1.3" strokeLinejoin="round" fillRule="evenodd" />
               {COMPANY.regions.map(region => {
                 const location = locations[region.code]
                 const active = selectedCode === region.code
@@ -81,18 +80,10 @@ export function Presence() {
                   </g>
                 )
               })}
-              <g aria-hidden="true">
-                <path d="M543.2,323L590,348L650,348" fill="none" stroke="#0d9488" strokeWidth="1.8" />
-                <circle cx="543.2" cy="323" r="7" fill="#ffffff" />
-                <circle cx="543.2" cy="323" r="4" fill="#0d9488" />
-                <text x="650" y="337" textAnchor="middle" fontSize="26" fontWeight="700" fill="#0f766e" stroke="#f8fafc" strokeWidth="5" paintOrder="stroke">Tamil Nadu</text>
-                <text x="650" y="371" textAnchor="middle" fontSize="21" fill="#425d78" stroke="#f8fafc" strokeWidth="4" paintOrder="stroke">Chennai office</text>
-              </g>
             </svg>
             <figcaption className="flex flex-wrap items-center gap-x-5 gap-y-2 px-5 pb-5 text-xs text-slate-500 sm:px-8">
               <span className="inline-flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-brand-600" />Selected region</span>
               <span className="inline-flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-brand-300" />Regional presence</span>
-              <span className="inline-flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-teal-600" />Tamil Nadu</span>
             </figcaption>
           </figure>
 
@@ -120,12 +111,10 @@ export function Presence() {
                       <h3 id={`region-heading-${region.code}`} className="mt-2 font-display text-2xl font-bold text-ink">{region.country}</h3>
                       <p className="mt-1 text-sm text-slate-600">{region.hub}</p>
                     </div>
-                    {region.address && (
+                    {region.phones?.length > 0 && (
                       <div className="border-l-2 border-brand-100 pl-4">
-                        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500"><MapPin aria-hidden="true" className="h-4 w-4 text-brand-600" />Chennai office</p>
-                        <p className="mt-2 text-sm leading-relaxed text-slate-600">{region.address}</p>
-                        {region.phones?.map(phone => (
-                          <a key={phone.tel} href={`tel:${phone.tel}`} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-brand-700 hover:underline"><Phone aria-hidden="true" className="h-4 w-4" />{phone.display}</a>
+                        {region.phones.map(phone => (
+                          <a key={phone.tel} href={`tel:${phone.tel}`} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-brand-700 hover:underline"><Phone aria-hidden="true" className="h-4 w-4" />{phone.display}</a>
                         ))}
                       </div>
                     )}
